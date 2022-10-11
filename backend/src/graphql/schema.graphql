@@ -1,0 +1,39 @@
+type Query {
+  getMovies: [Movies_Catalog!]
+}
+
+type Query {
+  getMoviesByUser(user: String!): [Movies_Catalog!]
+}
+
+type Movies_Catalog {
+  _id: ID!
+  titulo: String!
+  imagen: String!
+  descripcion: String!
+  likes: Int!
+  user: String!
+}
+
+type Users {
+  _id: ID!
+  user: String!
+  password: String!
+}
+
+
+type Mutation {
+  createMovie(titulo: String!, imagen: String!, descripcion:String!, user: String!): Movies_Catalog
+}
+
+type Mutation {
+  removeMovie(_id: String!): Movies_Catalog
+}
+
+type Mutation {
+  likeMovie(_id: String!): Movies_Catalog
+}
+
+type Mutation {
+  getUserLogin(user: String!, password: String!): Users!
+}
